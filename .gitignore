@@ -1,0 +1,9 @@
+postgres_data
+lastupdate.tmp
+.env
+.envrc
+.idea
+*.exe
+logs/*
+*.exe~
+run-local.sh
