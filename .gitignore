@@ -7,3 +7,4 @@ lastupdate.tmp
 logs/*
 *.exe~
 run-local.sh
+node_modules
