@@ -7,4 +7,5 @@ type Config struct {
 	DDHost   string `env:"DD_HOST"`
 	DDPort   string `env:"DD_PORT"`
 	HostName string `env:"HOST_NAME"`
+	AuthUrl  string `env:"AUTH_URL" envDefault:"http://ms-user-management/api/auth/verify-token"`
 }

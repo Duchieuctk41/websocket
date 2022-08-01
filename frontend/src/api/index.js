@@ -5,6 +5,7 @@ let connect = cb => {
 
   socket.onopen = () => {
     console.log("Successfully Connected");
+    socket.send("cc");
   };
 
   socket.onmessage = msg => {
@@ -22,8 +23,16 @@ let connect = cb => {
 };
 
 let sendMsg = msg => {
-  console.log("sending msg: ", msg);
-  socket.send(msg);
+  if (socket.readyState === WebSocket.OPEN) {
+    console.log("2")
+    socket.send(msg);
+
+  } else {
+    setTimeout(() => {
+      sendMsg()
+
+    }, 1000);
+  }
 };
 
-export {connect, sendMsg};
+export { connect, sendMsg };

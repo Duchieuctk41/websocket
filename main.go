@@ -33,5 +33,6 @@ func main() {
 	appConfig := &server.Config{} // lấy các thông tin config
 	handleErr(env.Parse(appConfig), "failed to parse app config: %v")
 	hub := server.NewHub(appConfig, logger.Tag("hub"))
+	// log 1
 	handleErr(hub.Run(ctx), "failed to start app: %v") // run server
 }

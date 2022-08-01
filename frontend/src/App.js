@@ -5,6 +5,7 @@ import { connect, sendMsg } from './api/index';
 
 function App() {
   const [chatHistory, setChatHistory] = useState([]);
+  const [msg, setMsg] = useState('')
   useEffect(() => {
     connect((msg) => {
       console.log("New Message")
@@ -13,14 +14,29 @@ function App() {
   })
 
   const send = (e) => {
-    sendMsg('hello hieu hoc code day')
+    sendMsg(msg)
+    console.log(msg)
+  }
+
+  const handleChange = (e) => {
+    setMsg(e.target.value);
+  }
+
+  const onSubmit = (e) => {
+    e.preventDefault();
   }
 
   return (
     <div className="App">
       <Header />
+      <form onSubmit={onSubmit}>
+        <label>
+          Name:
+          <input type="text" onChange={handleChange} />
+        </label>
+        <button onClick={send}>Hit</button>
+      </form>
       <ChatHistory chatHistory={chatHistory} />
-      <button onClick={send}>Hit</button>
     </div>
   );
 }
