@@ -2,6 +2,7 @@ import Header from "./components/Header/Header";
 import ChatHistory from "./components/ChatHistory/ChatHistory";
 import { useEffect, useState } from 'react';
 import { connect, sendMsg } from './api/index';
+import Login from "./components/Login/Login";
 
 function App() {
   const [chatHistory, setChatHistory] = useState([]);
@@ -29,13 +30,7 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <form onSubmit={onSubmit}>
-        <label>
-          Name:
-          <input type="text" onChange={handleChange} />
-        </label>
-        <button onClick={send}>Hit</button>
-      </form>
+      <Login handleChange={handleChange} send={send} onSubmit={onSubmit} />
       <ChatHistory chatHistory={chatHistory} />
     </div>
   );
