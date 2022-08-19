@@ -1,11 +1,10 @@
 let socket = new WebSocket("ws://127.0.0.1:8080/ws");
 
 let connect = cb => {
-  console.log("connecting");
+  // console.log("connecting");
 
   socket.onopen = () => {
-    console.log("Successfully Connected");
-    socket.send("cc");
+    // console.log("Successfully Connected");
   };
 
   socket.onmessage = msg => {
@@ -24,7 +23,7 @@ let connect = cb => {
 
 let sendMsg = msg => {
   if (socket.readyState === WebSocket.OPEN) {
-    console.log("2")
+    // console.log("2")
     socket.send(msg);
 
   } else {
